@@ -1,0 +1,121 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15bcb9aa63769bc468b936be7123d9f7, type: 3}
+  m_Name: Level01
+  m_EditorClassIdentifier: 
+  LevelName: Level_01
+  Level: 1
+  Time: 60
+  EnemyTypes:
+  - {fileID: 114000012611870944, guid: 6f63e30737cac094db637850a8da6912, type: 2}
+  Waves:
+  - EnemyType: 0
+    SpawnCount: 6
+    MaxEnemiesAlive: 25
+    MinSecondsInArena: 0
+    MinTotalEnemiesKilled: 0
+    SameSpawnpoint: 0
+  - EnemyType: 0
+    SpawnCount: 3
+    MaxEnemiesAlive: 25
+    MinSecondsInArena: 3
+    MinTotalEnemiesKilled: 0
+    SameSpawnpoint: 0
+  - EnemyType: 0
+    SpawnCount: 4
+    MaxEnemiesAlive: 25
+    MinSecondsInArena: 7
+    MinTotalEnemiesKilled: 0
+    SameSpawnpoint: 0
+  - EnemyType: 0
+    SpawnCount: 5
+    MaxEnemiesAlive: 25
+    MinSecondsInArena: 11
+    MinTotalEnemiesKilled: 0
+    SameSpawnpoint: 0
+  - EnemyType: 0
+    SpawnCount: 5
+    MaxEnemiesAlive: 25
+    MinSecondsInArena: 14
+    MinTotalEnemiesKilled: 0
+    SameSpawnpoint: 0
+  - EnemyType: 0
+    SpawnCount: 6
+    MaxEnemiesAlive: 25
+    MinSecondsInArena: 18
+    MinTotalEnemiesKilled: 0
+    SameSpawnpoint: 0
+  - EnemyType: 0
+    SpawnCount: 7
+    MaxEnemiesAlive: 25
+    MinSecondsInArena: 22
+    MinTotalEnemiesKilled: 0
+    SameSpawnpoint: 0
+  - EnemyType: 0
+    SpawnCount: 7
+    MaxEnemiesAlive: 25
+    MinSecondsInArena: 26
+    MinTotalEnemiesKilled: 0
+    SameSpawnpoint: 0
+  - EnemyType: 0
+    SpawnCount: 8
+    MaxEnemiesAlive: 25
+    MinSecondsInArena: 29
+    MinTotalEnemiesKilled: 0
+    SameSpawnpoint: 0
+  - EnemyType: 0
+    SpawnCount: 9
+    MaxEnemiesAlive: 25
+    MinSecondsInArena: 33
+    MinTotalEnemiesKilled: 0
+    SameSpawnpoint: 0
+  - EnemyType: 0
+    SpawnCount: 9
+    MaxEnemiesAlive: 25
+    MinSecondsInArena: 37
+    MinTotalEnemiesKilled: 0
+    SameSpawnpoint: 0
+  - EnemyType: 0
+    SpawnCount: 10
+    MaxEnemiesAlive: 25
+    MinSecondsInArena: 41
+    MinTotalEnemiesKilled: 0
+    SameSpawnpoint: 0
+  - EnemyType: 0
+    SpawnCount: 11
+    MaxEnemiesAlive: 25
+    MinSecondsInArena: 44
+    MinTotalEnemiesKilled: 0
+    SameSpawnpoint: 0
+  - EnemyType: 0
+    SpawnCount: 11
+    MaxEnemiesAlive: 25
+    MinSecondsInArena: 48
+    MinTotalEnemiesKilled: 0
+    SameSpawnpoint: 0
+  - EnemyType: 0
+    SpawnCount: 12
+    MaxEnemiesAlive: 25
+    MinSecondsInArena: 52
+    MinTotalEnemiesKilled: 0
+    SameSpawnpoint: 0
+  - EnemyType: 0
+    SpawnCount: 13
+    MaxEnemiesAlive: 25
+    MinSecondsInArena: 56
+    MinTotalEnemiesKilled: 0
+    SameSpawnpoint: 0
+  - EnemyType: 0
+    SpawnCount: 13
+    MaxEnemiesAlive: 25
+    MinSecondsInArena: 59
+    MinTotalEnemiesKilled: 0
+    SameSpawnpoint: 0

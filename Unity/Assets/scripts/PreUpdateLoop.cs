@@ -12,6 +12,7 @@ public class PreUpdateLoop : MonoBehaviour
     void Start()
     {
         _game = GameMain.Instance;
+        GameState.PlayerAsset = PlayerAsset;
     }
 
     // Update is called once per frame

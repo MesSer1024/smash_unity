@@ -1,11 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class EnemyMelee : MonoBehaviour
+public class EnemyMelee : IEnemy
 {
     public float MovementSpeed = 0.5f;
-    public GameObject Player;
-
     private Rigidbody _rigidbody;
 
     void Awake()
