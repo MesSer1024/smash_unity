@@ -1,24 +1,21 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class EnemyMelee : MonoBehaviour {
+public class EnemyMelee : MonoBehaviour
+{
+    public float MovementSpeed = 0.5f;
     public GameObject Player;
-    // Use this for initialization
-    void Start ()
+
+    private Rigidbody _rigidbody;
+
+    void Awake()
     {
-    
+        _rigidbody = GetComponent<Rigidbody>();
     }
     
-    // Update is called once per frame
-    void Update ()
-    {
-
-    }
-
     void FixedUpdate()
     {
         var dir = (Player.transform.position - transform.position).normalized;
-        var rigid = GetComponent<Rigidbody>();
-        rigid.velocity = dir * 48;
+        _rigidbody.velocity = dir * MovementSpeed;
     }
 }
