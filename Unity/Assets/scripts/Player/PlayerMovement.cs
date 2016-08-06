@@ -39,7 +39,7 @@ public class PlayerMovement : MonoBehaviour
         }
         var speedFactor = 1.0f;
 
-        if(Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
+        if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
         {
             speedFactor = 3.0f;
         }
