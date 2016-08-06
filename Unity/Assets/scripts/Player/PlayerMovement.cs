@@ -43,8 +43,8 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
         {
-            speedFactor = 3.0f;
+            speedFactor = MovementRunMultiplier;
         }
-        rigid.velocity = inputDirection.normalized * 100 * speedFactor;
+        rigid.velocity = inputDirection.normalized * MovementSpeed * speedFactor;
     }
 }
