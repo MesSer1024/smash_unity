@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
-public class PistolShot : MonoBehaviour
+public class PistolShot : MonoBehaviour, IShot
 {
     public float Speed = 10f;
     public float LifeTime = 1f;
@@ -13,6 +14,13 @@ public class PistolShot : MonoBehaviour
     void Awake()
     {
         _rigidbody = GetComponent<Rigidbody>();
+    }
+
+    public void Spawn(Vector3 startPos, Vector3 endPos)
+    {
+        Vector3 aimDirection = (endPos - startPos).normalized;
+        transform.position = startPos;
+        transform.rotation = Quaternion.LookRotation(aimDirection);
     }
 
     void Start()

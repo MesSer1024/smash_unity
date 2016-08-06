@@ -3,6 +3,8 @@ using System.Collections;
 
 public class Pistol : MonoBehaviour
 {
+    public float EnergyCost;
+    public int MouseButton;
     public float Cooldown = 1f;
     public GameObject ProjectilePrefab;
 
@@ -17,18 +19,19 @@ public class Pistol : MonoBehaviour
         float lenght;
         plane.Raycast(ray, out lenght);
         Vector3 mouseWorldPos = ray.origin + ray.direction * lenght;
-        Vector3 aimDirection = (mouseWorldPos - transform.position).normalized;
 
-        bool shoot = Input.GetMouseButton(0);
+        bool shoot = Input.GetMouseButton(MouseButton);
         if (shoot && _cooldown <= 0)
         {
-            SpawnShot(transform.position + Vector3.up * 1f, aimDirection);
+            SpawnShot(transform.position + Vector3.up * 1f, mouseWorldPos);
         }
     }
 
-    void SpawnShot(Vector3 position, Vector3 direction)
+    void SpawnShot(Vector3 position, Vector3 targetPosition)
     {
-        Instantiate(ProjectilePrefab, position, Quaternion.LookRotation(direction));
+        var instance = Instantiate(ProjectilePrefab) as GameObject;
+        var shot = instance.GetComponent<IShot>();
+        shot.Spawn(position, targetPosition);
         _cooldown = Cooldown;
-    }
+    }    
 }
