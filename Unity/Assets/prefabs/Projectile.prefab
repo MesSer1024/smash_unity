@@ -20,7 +20,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000011484815506}
   - 33: {fileID: 33000010560943534}
-  - 135: {fileID: 135000012665398624}
   - 23: {fileID: 23000013809855136}
   - 114: {fileID: 114000013149411394}
   - 54: {fileID: 54000010254388222}
@@ -106,19 +105,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c59d843ed5a9f30449ecc057df50fffa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 27
+  Speed: 100
   LifeTime: 10
+  HitMask:
+    serializedVersion: 2
+    m_Bits: 1024
   ImpactParticleSystemPrefab: {fileID: 198000011903683954, guid: ef116245eeb4c1f488980148347b3e60,
     type: 2}
---- !u!135 &135000012665398624
-SphereCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000011192105904}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
