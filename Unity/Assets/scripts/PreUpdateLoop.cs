@@ -13,6 +13,7 @@ public class PreUpdateLoop : MonoBehaviour
     {
         _game = GameMain.Instance;
         GameState.PlayerAsset = PlayerAsset;
+        GameState.Enemies = new System.Collections.Generic.List<IEnemy>();
     }
 
     // Update is called once per frame

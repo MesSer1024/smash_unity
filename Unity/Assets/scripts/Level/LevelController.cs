@@ -20,7 +20,7 @@ public class LevelController : MonoBehaviour
     {
         private LevelData.WaveSpawn _spawnData;
         public bool Completed { get; set; }
-        public bool Active { get; set; }
+        public bool CriteriasFulfilled { get; set; }
         private int _criteriaCount;
 
         public SpawnTracker(LevelData.WaveSpawn waveData)
@@ -38,24 +38,21 @@ public class LevelController : MonoBehaviour
         public void update(ArenaState data)
         {
             //check for activation
-            if(Active == false)
+            int completedCriterias = 0;
+            if (_spawnData.MinSecondsInArena > 0 && data.SecondsInArena >= _spawnData.MinSecondsInArena)
             {
-                int completedCriterias = 0;
-                if (_spawnData.MinSecondsInArena > 0 && data.SecondsInArena >= _spawnData.MinSecondsInArena)
-                {
-                    completedCriterias++;
-                }
-                if (_spawnData.MaxEnemiesAlive > 0 && data.EnemiesAlive < _spawnData.MaxEnemiesAlive)
-                {
-                    completedCriterias++;
-                }
-                if (_spawnData.MinTotalEnemiesKilled > 0 && data.EnemiesKilled >= _spawnData.MinTotalEnemiesKilled)
-                {
-                    completedCriterias++;
-                }
-                if (completedCriterias >= _criteriaCount)
-                    Active = true;
+                completedCriterias++;
             }
+            if (_spawnData.MaxEnemiesAlive > 0 && data.EnemiesAlive < _spawnData.MaxEnemiesAlive)
+            {
+                completedCriterias++;
+            }
+            if (_spawnData.MinTotalEnemiesKilled > 0 && data.EnemiesKilled >= _spawnData.MinTotalEnemiesKilled)
+            {
+                completedCriterias++;
+            }
+
+            CriteriasFulfilled = completedCriterias >= _criteriaCount;
         }
 
         public int GetEnemyTypeIndex()
@@ -82,23 +79,27 @@ public class LevelController : MonoBehaviour
     {
         var state = new ArenaState();
         state.SecondsInArena = (int)Time.time;
-        foreach(var spawn in _spawns)
+        state.EnemiesAlive = GameState.Enemies.FindAll(a => a.IsAlive).Count; //check if they are alive
+
+
+        foreach (var spawn in _spawns)
         {
             if (spawn.Completed)
                 continue;
 
             spawn.update(state);
 
-            if(spawn.Active)
+            if(spawn.CriteriasFulfilled)
             {
                 var prefab = LevelAsset.EnemyTypes[spawn.GetEnemyTypeIndex()];
                 for(int i=0; i < spawn.GetEnemySpawnCount(); ++i)
                 {
                     var enemy = Instantiate<IEnemy>(prefab);
+                    GameState.Enemies.Add(enemy);
                     enemy.Player = GameState.PlayerAsset;
-
                     enemy.transform.position = GetRandomSpawnPosition();
                 }
+                state.EnemiesAlive += spawn.GetEnemySpawnCount(); //update alive enemies so we dont trigger lots of new enemies in one frame
                 spawn.Completed = true;
             }
         }
