@@ -10,6 +10,8 @@ public class LevelController : MonoBehaviour
     public LevelData LevelAsset;
     private List<SpawnTracker> _spawns;
 
+    public float _secondsInArena;
+
     private struct ArenaState
     {
         public int SecondsInArena;
@@ -79,12 +81,13 @@ public class LevelController : MonoBehaviour
     void Update()
     {
         var state = new ArenaState();
-        state.SecondsInArena = (int)Time.time;
+        _secondsInArena += Time.deltaTime;
+
+        state.SecondsInArena = (int)_secondsInArena;
         GameState.SecondsInArena = state.SecondsInArena;
         if(state.SecondsInArena > LevelAsset.Time)
         {
-            SceneManager.LoadScene(2);
-            return;
+            MessageManager.QueueMessage(new ArenaFinishedMessage());
         }
 
         state.EnemiesAlive = GameState.Enemies.FindAll(a => a.IsAlive).Count; //check if they are alive
@@ -124,5 +127,10 @@ public class LevelController : MonoBehaviour
         pos.z += UnityEngine.Random.Range(0, scale.z) - (scale.z / 2);
 
         return pos;
+    }
+
+    public void StartArena()
+    {
+        _secondsInArena = 0.0f;
     }
 }
