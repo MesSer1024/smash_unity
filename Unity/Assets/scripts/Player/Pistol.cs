@@ -7,6 +7,7 @@ public class Pistol : MonoBehaviour
     public int MouseButton;
     public float Cooldown = 1f;
     public GameObject ProjectilePrefab;
+    public AudioClip ProjectileSpawnSound;
 
     private float _cooldown;
 
@@ -24,6 +25,10 @@ public class Pistol : MonoBehaviour
         if (shoot && _cooldown <= 0)
         {
             SpawnShot(transform.position + Vector3.up * 1f, mouseWorldPos);
+            if (ProjectileSpawnSound != null)
+            {
+                AudioSource.PlayClipAtPoint(ProjectileSpawnSound, transform.position);
+            }
         }
     }
 
