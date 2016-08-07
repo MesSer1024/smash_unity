@@ -23,10 +23,24 @@ public class PistolShot : MonoBehaviour, IShot
     {
         endPos.y = startPos.y;
         Vector3 aimDirection = (endPos - startPos).normalized;
-        transform.position = startPos;
+        _rigidbody.position = startPos;
         transform.rotation = Quaternion.LookRotation(aimDirection);
         _lifetime = LifeTime;
         _lastPosition = startPos;
+
+        var colliders = Physics.OverlapSphere(startPos, Radius, HitMask);
+        foreach (var collider in colliders)
+        {
+            Life lifeComponent = collider.GetComponent<Life>();
+            if (lifeComponent != null)
+            {
+                lifeComponent.DoDamage(50);
+            }
+            
+            DestroyProjectile(startPos);
+        }
+
+        Debug.Log("Spawn " + Time.time);
     }
 
     void FixedUpdate()
