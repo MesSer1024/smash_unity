@@ -114,6 +114,7 @@ MonoBehaviour:
     m_RotationOrder: 0
   Height: 5
   ExplosionRadius: 3
+  ExplosionTime: 0.5
   HitMask:
     serializedVersion: 2
     m_Bits: 1024
