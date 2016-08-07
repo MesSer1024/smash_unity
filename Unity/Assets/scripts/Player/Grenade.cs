@@ -9,11 +9,14 @@ public class Grenade : MonoBehaviour, IShot
     public AnimationCurve HeightCurve = AnimationCurve.Linear(0, 0, 1, 0);
     public float Height = 10;
     public float ExplosionRadius = 3f;
+    public float ExplosionTime = 0.5f;
     public LayerMask HitMask;
 
     public ParticleSystem ImpactParticleSystemPrefab;
 
     private float _spawnTime;
+    private float _explosionTime;
+    private bool _exploded;
     private Vector3 _startPosition;
     private Vector3 _endPosition;
     
@@ -35,24 +38,50 @@ public class Grenade : MonoBehaviour, IShot
 
     void FixedUpdate()
     {
-        if (Time.time >= _spawnTime + TravelTime)
+        if (_exploded == false)
         {
-            DestroyGrenade();
+            if (Time.time >= _spawnTime + TravelTime)
+            {
+                Explode();
+            }
+        }
+
+        if (_exploded)
+        {
+            bool finishedExploding = Time.time >= _explosionTime + ExplosionTime;
+            if (finishedExploding)
+            {
+                DestroyGrenade();
+            }
+            else
+            {
+                var colliders = Physics.OverlapSphere(_endPosition, ExplosionRadius, HitMask);
+                for (int i = 0; i < colliders.Length; i++)
+                {
+                    var lifeComponent = colliders[i].GetComponent<Life>();
+                    if (lifeComponent != null)
+                        lifeComponent.DoDamage(200);
+                }
+            }
         }
     }
     
-    void DestroyGrenade()
+    void Explode()
     {
         Instantiate(ImpactParticleSystemPrefab, transform.position, Quaternion.identity);
+        _exploded = true;
+        _explosionTime = Time.time;
 
-        var colliders = Physics.OverlapSphere(_endPosition, ExplosionRadius, HitMask);
-        for (int i = 0; i < colliders.Length; i++)
+        // disable the grenade renderer
+        var renderers = GetComponentsInChildren<Renderer>();
+        for (int i = 0; i < renderers.Length; i++)
         {
-            var lifeComponent = colliders[i].GetComponent<Life>();
-            if (lifeComponent != null)
-                lifeComponent.DoDamage(200);
+            renderers[i].enabled = false;
         }
+    }
 
+    void DestroyGrenade()
+    {
         Destroy(gameObject);
     }
 
