@@ -138,6 +138,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e25c74d925701724c90800fc39011d48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BoundsMask:
+    serializedVersion: 2
+    m_Bits: 2048
   EnergyCost: 0
   MouseButton: 0
   Cooldown: 0.2
@@ -154,6 +157,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f3ed4b985dcaed4194830a7df1a07d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LifeData: {fileID: 11400000, guid: b43f462b07c1cc44ab69c08013c6efe1, type: 2}
   ShowHealthBar: 1
   StartHealth: 100
 --- !u!114 &114000012592940968
@@ -167,6 +171,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e25c74d925701724c90800fc39011d48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BoundsMask:
+    serializedVersion: 2
+    m_Bits: 2048
   EnergyCost: 0
   MouseButton: 1
   Cooldown: 0.2

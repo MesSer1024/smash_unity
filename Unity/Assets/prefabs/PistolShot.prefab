@@ -105,11 +105,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c59d843ed5a9f30449ecc057df50fffa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 100
+  Speed: 40
   LifeTime: 10
   Radius: 0.25
   HitMask:
     serializedVersion: 2
-    m_Bits: 1024
+    m_Bits: 1025
   ImpactParticleSystemPrefab: {fileID: 198000011903683954, guid: ef116245eeb4c1f488980148347b3e60,
     type: 2}

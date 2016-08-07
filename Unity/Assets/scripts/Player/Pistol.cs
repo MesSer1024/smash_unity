@@ -3,6 +3,7 @@ using System.Collections;
 
 public class Pistol : MonoBehaviour
 {
+    public LayerMask BoundsMask;
     public float EnergyCost;
     public int MouseButton;
     public float Cooldown = 1f;
@@ -19,6 +20,16 @@ public class Pistol : MonoBehaviour
         float lenght;
         plane.Raycast(ray, out lenght);
         Vector3 mouseWorldPos = ray.origin + ray.direction * lenght;
+
+
+        Vector3 playerToTargetVector = mouseWorldPos - transform.position;
+        var playerToTargetRay = new Ray(transform.position, playerToTargetVector.normalized);
+
+        RaycastHit hit;
+        if (Physics.Raycast(playerToTargetRay, out hit, playerToTargetVector.magnitude, BoundsMask))
+        {
+            mouseWorldPos = playerToTargetRay.origin + playerToTargetRay.direction * hit.distance * 0.8f;
+        }
 
         bool shoot = Input.GetMouseButton(MouseButton);
         if (shoot && _cooldown <= 0)

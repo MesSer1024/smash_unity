@@ -1,8 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Life : MonoBehaviour
 {
+    public LifeDataAsset LifeData;
+
     public bool ShowHealthBar;
     public float StartHealth = 100f;
 
@@ -10,9 +13,21 @@ public class Life : MonoBehaviour
 
     private float _health;
 
+    public static List<Life> LifeComponents = new List<Life>(30);  
+
     void Awake()
     {
         _health = StartHealth;
+    }
+
+    void OnEnable()
+    {
+        LifeComponents.Add(this);
+    }
+
+    void OnDisable()
+    {
+        LifeComponents.Remove(this);
     }
 
     public void DoDamage(float damage)
