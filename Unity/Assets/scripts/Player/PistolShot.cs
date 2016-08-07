@@ -39,8 +39,6 @@ public class PistolShot : MonoBehaviour, IShot
             
             DestroyProjectile(startPos);
         }
-
-        Debug.Log("Spawn " + Time.time);
     }
 
     void FixedUpdate()
@@ -48,7 +46,7 @@ public class PistolShot : MonoBehaviour, IShot
         _rigidbody.velocity = transform.forward * Speed;
 
         Vector3 rayVector = (_rigidbody.position - _lastPosition);
-        Ray ray = new Ray(_rigidbody.position, rayVector.normalized);
+        Ray ray = new Ray(_lastPosition, rayVector.normalized);
         var rayCastHits = Physics.SphereCastAll(ray, Radius, rayVector.magnitude, HitMask);
         foreach (var hit in rayCastHits)
         {
