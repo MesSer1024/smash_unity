@@ -987,9 +987,6 @@ MonoBehaviour:
   WallContainerAsset: {fileID: 1838133327}
   ArenaLight: {fileID: 1462868428}
   Level: {fileID: 614743482}
-  BackgroundMusic: {fileID: 8300000, guid: e7ca12708d54c664cb79c8348de4e123, type: 3}
-  PistolShotFX: {fileID: 8300000, guid: d85080852a4e98541b227c762a9b631b, type: 3}
-  PistolShotImpactFX: {fileID: 8300000, guid: 71c95521765ba454984a917e9cc0eae6, type: 3}
 --- !u!1001 &1408932858
 Prefab:
   m_ObjectHideFlags: 0
@@ -1315,14 +1312,14 @@ AudioSource:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1921648024}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: e7ca12708d54c664cb79c8348de4e123, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.564
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   Priority: 128
