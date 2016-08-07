@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System;
+using UnityEngine.SceneManagement;
 
 public class LevelController : MonoBehaviour
 {
@@ -79,6 +80,13 @@ public class LevelController : MonoBehaviour
     {
         var state = new ArenaState();
         state.SecondsInArena = (int)Time.time;
+        GameState.SecondsInArena = state.SecondsInArena;
+        if(state.SecondsInArena > LevelAsset.Time)
+        {
+            SceneManager.LoadScene(2);
+            return;
+        }
+
         state.EnemiesAlive = GameState.Enemies.FindAll(a => a.IsAlive).Count; //check if they are alive
 
 
