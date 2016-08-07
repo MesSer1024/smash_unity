@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System;
+using System.Collections.Generic;
 
 public class Grenade : MonoBehaviour, IShot
 {
@@ -39,10 +40,19 @@ public class Grenade : MonoBehaviour, IShot
             DestroyGrenade();
         }
     }
-
+    
     void DestroyGrenade()
     {
-        //Instantiate(ImpactParticleSystemPrefab, transform.position, Quaternion.identity);
+        Instantiate(ImpactParticleSystemPrefab, transform.position, Quaternion.identity);
+
+        var colliders = Physics.OverlapSphere(_endPosition, ExplosionRadius, HitMask);
+        for (int i = 0; i < colliders.Length; i++)
+        {
+            var lifeComponent = colliders[i].GetComponent<Life>();
+            if (lifeComponent != null)
+                lifeComponent.DoDamage(200);
+        }
+
         Destroy(gameObject);
     }
 

@@ -13,7 +13,7 @@ public class UI_MainUI : MonoBehaviour
     {
         public List<UI_FillBar.FillBarData> FillBars;
     }
-
+    
     public void SetData(MainUIData data)
     {
         // health bars

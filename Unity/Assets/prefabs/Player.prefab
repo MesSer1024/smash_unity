@@ -41,6 +41,7 @@ GameObject:
   - 136: {fileID: 136000013948730962}
   - 114: {fileID: 114000010737854712}
   - 114: {fileID: 114000012592940968}
+  - 114: {fileID: 114000011008904336}
   m_Layer: 9
   m_Name: Player
   m_TagString: Untagged
@@ -142,6 +143,19 @@ MonoBehaviour:
   Cooldown: 0.2
   ProjectilePrefab: {fileID: 1000011192105904, guid: 4276088d52a217d4f892b5d0b7f27b01,
     type: 2}
+--- !u!114 &114000011008904336
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012688335484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f3ed4b985dcaed4194830a7df1a07d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowHealthBar: 1
+  StartHealth: 100
 --- !u!114 &114000012592940968
 MonoBehaviour:
   m_ObjectHideFlags: 1

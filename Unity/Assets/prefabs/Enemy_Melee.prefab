@@ -39,6 +39,7 @@ GameObject:
   - 136: {fileID: 136000011617048912}
   - 114: {fileID: 114000012611870944}
   - 54: {fileID: 54000011947381860}
+  - 114: {fileID: 114000014091698994}
   m_Layer: 10
   m_Name: Enemy_Melee
   m_TagString: Untagged
@@ -136,7 +137,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MovementSpeed: 1.7
-  Player: {fileID: 0}
+--- !u!114 &114000014091698994
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011696825114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f3ed4b985dcaed4194830a7df1a07d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowHealthBar: 0
+  StartHealth: 100
 --- !u!136 &136000011617048912
 CapsuleCollider:
   m_ObjectHideFlags: 1

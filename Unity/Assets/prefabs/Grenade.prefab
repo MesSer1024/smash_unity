@@ -117,7 +117,7 @@ MonoBehaviour:
   HitMask:
     serializedVersion: 2
     m_Bits: 1024
-  ImpactParticleSystemPrefab: {fileID: 198000011903683954, guid: ef116245eeb4c1f488980148347b3e60,
+  ImpactParticleSystemPrefab: {fileID: 198000011903683954, guid: 85c6d12a5f2d16946a7f3adf7841545a,
     type: 2}
 --- !u!135 &135000012665398624
 SphereCollider:
